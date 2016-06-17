@@ -12,8 +12,12 @@ $("#ejecutar").click(function(){
 	});
 	 
 	request.done(function( data ) {
-		if(data!=""){
-			$("#consola").append(data+"<br>");
+		if(data.valido){
+			if(data.mensaje){
+				$("#consola").append(data.mensaje+"<br>");
+			}			
+		}else{
+			alert("operacion erronea");
 		}	  
 	});
 	 
