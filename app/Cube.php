@@ -9,19 +9,14 @@ class Cube extends Model
 	private $matriz;
     private $nqueries;
 
-	public function Cube($size,$nqueries)
+	public function __construct($size,$nqueries)
 	{
-        if(is_int($size) && is_int($nqueries)){
-            $this->nqueries=$nqueries;
-            for( $i=0; $i < $size*$size*$size ; $i++ ){
-                $q = $i / ($size * $size);
-                $r = $i % ($size * $size);
-                $this->matriz[$q][$r/$size][$r % $size] = 0;
-                return true;
-            }
-        }else{
-            return false;
-        }        
+        $this->nqueries=$nqueries;
+        for( $i=0; $i < $size*$size*$size ; $i++ ){
+            $q = $i / ($size * $size);
+            $r = $i % ($size * $size);
+            $this->matriz[$q][$r/$size][$r % $size] = 0; 
+        }  
 	}
 
 	public function updateCell($x,$y,$z,$value)
@@ -34,7 +29,7 @@ class Cube extends Model
         }
 	}
 
-	public function query($x1, $y1, $z1, $x2, $y2, $z2)
+	public function queries($x1, $y1, $z1, $x2, $y2, $z2)
     {
         if(is_int($x) && is_int($y) && is_int($z) && is_int($value)){
             $sum=0;

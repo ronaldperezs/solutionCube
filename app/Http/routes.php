@@ -11,6 +11,8 @@
 |
 */
 
+Route::get('/cube/reiniciar', ['uses' =>'CubeController@reiniciar']);
+Route::get('/cube/{texto}', ['uses' =>'CubeController@entrada']);
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
